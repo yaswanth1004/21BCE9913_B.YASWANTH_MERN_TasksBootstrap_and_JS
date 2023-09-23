@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>Js-Task2</h1>
+<p>Enter a string to sort alphabetically:</p>
+<input placeholder="Example string:" type="text" id="stringInput">
+<button onclick="sortAndDisplay()">Sort</button>
+<p>Expected output:</p>
+<p id="sortedOutput"></p>
+<script>
+  function sortStringAlphabetically(inputString) {
+    return inputString.split('').sort().join('');
+  }
+  function sortAndDisplay() {         
+    const stringInput = document.getElementById('stringInput').value;
+    const sortedOutput = document.getElementById('sortedOutput');
+    const sortedString = sortStringAlphabetically(stringInput);
+    sortedOutput.textContent = `Sorted String: ${sortedString}`;
+  }
+</script>
+</body>
+</html> 

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Js-Task5</title>
+  <style>
+    .error{
+      border: 2px solid red;
+    }
+    .error-msg{
+        color: red;
+    } 
+  </style>
+</head>
+<body>
+<h1>Js-Task5</h1>
+<form id="contactForm">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required>
+  <span id="nameError" class="error-msg"></span>
+  <br>
+  <br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required>
+  <span id="emailError" class="error-msg"></span>
+  <br>
+  <br>
+  <label for="website">Website:</label>
+  <input type="url" id="website" name="website" required>
+  <span id="websiteError" class="error-msg"></span>
+  <br>
+  <br>
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" rows="4" required></textarea>
+  <span id="messageError" class="error-msg"></span>
+  <br>
+  <br>
+  <button type="button" id="submitButton">Submit</button>
+</form>
+<script>
+  document.getElementById('submitButton').addEventListener('click', function() {
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const websiteInput = document.getElementById('website');
+    const messageTextArea = document.getElementById('message');
+    document.querySelectorAll('.error-msg').forEach(msg => {
+      msg.textContent = '';
+    });
+    let isValid = true;
+    if (!nameInput.value) {
+      document.getElementById('nameError').textContent = 'This field is required';
+      nameInput.classList.add('error');
+      document.getElementById('nameError').classList.add('error-msg');
+      isValid = false;
+    }
+    if (!emailInput.value) {
+      document.getElementById('emailError').textContent = 'A valid email address is required';
+      emailInput.classList.add('error');
+      document.getElementById('emailError').classList.add('error-msg');
+      isValid = false;
+    }
+    if (!websiteInput.value) {
+      document.getElementById('websiteError').textContent = 'A valid url is required';
+      websiteInput.classList.add('error');
+      document.getElementById('websiteError').classList.add('error-msg');
+      isValid = false;
+    }
+    if (!messageTextArea.value) {
+      document.getElementById('messageError').textContent = 'This field  is required';
+      messageTextArea.classList.add('error');
+      document.getElementById('messageError').classList.add('error-msg');
+      isValid = false;
+    }
+    if (isValid) {
+      alert('Form is valid. Submitting...');
+    }
+  });
+</script>
+</body>
+</html>
